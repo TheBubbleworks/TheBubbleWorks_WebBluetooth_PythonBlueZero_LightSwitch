@@ -1,5 +1,5 @@
 
-A Web Bluetooth client for the (Python BlueZero)[https://github.com/ukBaz/python-bluezero] LightSwitch example.
+A Web Bluetooth client for the [Python BlueZero](https://github.com/ukBaz/python-bluezero) LightSwitch example.
 
 
 
