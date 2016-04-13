@@ -12,7 +12,7 @@ function info(text) {
 
 function log(line) {
   console.log(line);
-  textarea = document.getElementById('consoleTextArea')
+  textarea = document.getElementById('consoleTextArea');
   if (textarea) {
     previous_text = textarea.innerHTML;
     textarea.innerHTML = previous_text + line + "\n";
@@ -23,7 +23,7 @@ function log(line) {
 window.onerror = function(msg, url, lineNumber, columnNumber, error) {
   error(msg + ' Script: ' + url + ' Line: ' + lineNumber);
   return false;
-}
+};
 
 
 //-------------------------------------------------------------------------
