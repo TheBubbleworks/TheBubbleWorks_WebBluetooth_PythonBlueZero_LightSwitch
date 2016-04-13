@@ -15,7 +15,7 @@ body {
 
 .fa-lightbulb-o {
   color: lightgrey;
-  font-size: 200px;
+  font-size: 196px;
 }
 
 .fa-toggle {
@@ -23,9 +23,6 @@ body {
   color: grey;
 }
 
-.fa-toggle#lightSwitch {
-  font-size: 100px;
-}
 
 .lightBulbOff {
   color: grey;
@@ -72,13 +69,13 @@ button {
   
 }
 
-#fixed-top-right {
+.fixed-top-right {
   position: fixed;
   top: 1em;
   right: 1em;
 }
 
-#fixed-top-left {
+.fixed-top-left {
   position: fixed;
   top: 1em;
   left: 1em;
