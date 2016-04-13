@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+      https://www.thebubbleworks.com/TheBubbleWorks_WebBluetooth_PythonBlueZero_LightSwitch
+      
+      http://plnkr.co/edit/eJeCIn?p=preview
+      
+-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Python BlueZero - Light Example</title>
+
+
+  <script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+  <!-- FontAwesome is a collection of icons, this uses the lightbulb, bluetooth and the switch -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+
+  <!-- App specifc styles -->
+  <link rel="stylesheet" href="app.css" />
+
+  <!-- WORK IN PROGRESS - AGENT NOT YET PUBLISHED -->
+  <!-- If the browser aand platform  doesn't support WebBluetooth at all it's possible to fall back to using 
+       a 'sidekick' that runs as a local service on the client machine by injecting this optional shim.
+       The BubbleWorks cross platform & cross browser Web Bluetooth shim, requires client/native service to be running on local machine.
+       See here: https://www.thebubbleworks.com/WebBluetoothSidekick/latest/agent/
+  -->
+  <!--
+  <script src="https://www.thebubbleworks.com/WebBluetoothSidekick/latest/browser/lib/bluetooth.helpers.js"></script>
+  <script src="https://www.thebubbleworks.com/WebBluetoothSidekick/latest/browser/lib/adapter.bubbleworks.js"></script>
+  -->
+
+</head>
+
+<body>
+
+  <div id="fixed-top-left">
+    <div>
+      <i class="fa fa-bluetooth fa-5x blue"></i>
+    </div>
+    <div>
+      <button id="connectButton">
+        <i class="fa fa-toggle fa-toggle-off fa-5x blue" id="bluetoothSwitch"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <div class="inner">
+    <i class="fa fa-lightbulb-o large-icon lightBulbOff" id="lightBulb"></i>
+  </div>
+  <div class="inner">
+    <button id="offButton">
+      <i class="fa fa-toggle fa-toggle-off fa-5x red" id="lightSwitch"></i>
+    </button>
+  </div>
+
+  <div id="footer">
+    <h2>LightBulb Demo for Python <a href="https://github.com/ukBaz/python-bluezero ">BlueZero</a></h2>
+
+    <textarea class="console" id="consoleTextArea" readonly=""></textarea>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
