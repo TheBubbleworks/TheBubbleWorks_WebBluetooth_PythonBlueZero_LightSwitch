@@ -10,16 +10,16 @@ body {
 
 .fa-bluetooth {
   color: blue;
-  font-size: 14vw;
+  font-size: 12vw;
 }
 
 .fa-lightbulb-o {
   color: lightgrey;
-  font-size: 30vw;
+  font-size: 20vw;
 }
 
 .fa-toggle {
-  font-size: 10vw;
+  font-size: 8vw;
   color: grey;
 }
 
