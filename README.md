@@ -3,7 +3,4 @@ A Web Bluetooth client for the [Python BlueZero](https://github.com/ukBaz/python
 
 
 
-View this as a webpage [here](https://www.thebubbleworks.com/TheBubbleWorks_WebBluetooth_PythonBlueZero_LightSwitch). (read-only)
-
-View and edit a (possibly out of sync) version [here](http://plnkr.co/edit/eJeCIn?p=preview). 
-
+View this as a live webpage [here](https://www.thebubbleworks.com/TheBubbleWorks_WebBluetooth_PythonBlueZero_LightSwitch). 
