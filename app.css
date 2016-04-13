@@ -15,7 +15,7 @@ body {
 
 .fa-lightbulb-o {
   color: lightgrey;
-  font-size: 48vw;
+  font-size: 30vw;
 }
 
 .fa-toggle {
@@ -24,7 +24,7 @@ body {
 }
 
 .fa-toggle#lightSwitch {
-  font-size: 22vw;
+  font-size: 15vw;
 }
 
 .lightBulbOff {
