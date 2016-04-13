@@ -20,7 +20,7 @@ function log(line) {
   }
 }
 
-window.onerror = function(msg, url, lineNumber, columnNumber, error) {
+window.onerror = function(msg, url, lineNumber, columnNumber, err) {
   error(msg + ' Script: ' + url + ' Line: ' + lineNumber);
   return false;
 }
@@ -66,7 +66,7 @@ var connected = false;
 
 //-------------------------------------------------------------------------
 // Bluetooth state and connection setup
-
+var bleDevice = null;
 var gattServer = null;
 var gattService = null;
 var writeCharacteristic = null;
@@ -81,8 +81,12 @@ function setupBluetooth() {
   }
 
   if (gattServer !== null && gattServer.connected) {
-    info('Disconnecting...');
-    gattServer.disconnect();
+    info('(not yet) Disconnecting...');
+    // TODO: inspect platform support, and/or
+    // TODO: listen for an actual BLE event#
+    //gattServer.disconnect();
+    //updateBluetoothState(false); 
+
   } else {
     info('Connecting...');
     if (readCharacteristic === null) {
@@ -94,7 +98,11 @@ function setupBluetooth() {
         .then(function(device) {
           info('DeviceName=' + device.name);
           info('Connecting to GATT Server...');
-          return device.gatt.connect(); // Connect to GATT Server on  device
+          bleDevice = device;
+          if (device.gatt)
+            return device.gatt.connect(); // Connect to GATT Server on  device
+          else
+            return device.connectGATT();  // deprecated but a fallback
         }).then(function(server) {
           info('Found GATT server');
           gattServer = server;
@@ -112,7 +120,8 @@ function setupBluetooth() {
           connected = true;
           info('Found read characteristic');
           readCharacteristic = characteristic;
-          connected();
+          updateBluetoothState(true);
+
 
           // Listen to device notifications
           return readCharacteristic.startNotifications().then(function() {
@@ -133,7 +142,8 @@ function setupBluetooth() {
 
 function handleError(err) {
   error(err);
-  connected = false;  
+  updateBluetoothState(false);
+  
 }
 
 //-------------------------------------------------------------------------
@@ -158,7 +168,7 @@ function onDataReceived(data) {
   if (data.length === 0)
     return;
 
-  updateState(data[0] == 0x01);
+  updateLightState(data[0] == 0x01);
 }
 
 
@@ -173,7 +183,7 @@ function connectPressed() {
 
 function switchPressed() {
   isLightOn = !isLightOn;
-  updateState(isLightOn);
+  updateLightState(isLightOn);
 }
 
 
@@ -181,18 +191,18 @@ function switchPressed() {
 // UI Display
 
 function updateDisplay() {
-  updateBluetoothDisplayState();
-  updateLightSwitchState();
+  updateBluetoothDisplay();
+  updateLightDisplay();
 }
 
-function updateBluetoothDisplayState() {
+function updateBluetoothDisplay() {
   if (connected)
     $('#bluetoothSwitch').removeClass('fa-toggle-off').addClass('fa-toggle-on');
   else
     $('#bluetoothSwitch').removeClass('fa-toggle-on').addClass('fa-toggle-off');
 }
 
-function updateLightSwitchState() {
+function updateLightDisplay() {
   if (isLightOn) {
     $('#lightBulb').removeClass('lightBulbOff').addClass('lightBulbOn');
     $('#lightSwitch').removeClass('fa-toggle-off').addClass('fa-toggle-on');
@@ -207,7 +217,12 @@ function updateLightSwitchState() {
 //-------------------------------------------------------------------------
 // State handling
 
-function updateState(newIsLightOnState) {
+function updateBluetoothState(newConnectedState) {
+  connected=newConnectedState;
+  updateBluetoothDisplay();
+}
+
+function updateLightState(newIsLightOnState) {
   if (newIsLightOnState) {
     isLightOn = true;
     send(LIGHT_ON);
@@ -216,5 +231,5 @@ function updateState(newIsLightOnState) {
     isLightOn = false;
     send(LIGHT_OFF);
   }
-  updateLightSwitchState();
+  updateLightDisplay();
 }
