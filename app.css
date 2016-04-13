@@ -1,0 +1,91 @@
+body {
+  background-color: lightgrey;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+}
+
+.fa {
+  text-shadow: 3px 3px 6px #888888;
+}
+
+.fa-bluetooth {
+  color: blue;
+  font-size: 14vw;
+}
+
+.fa-lightbulb-o {
+  color: lightgrey;
+  font-size: 48vw;
+}
+
+.fa-toggle {
+  font-size: 10vw;
+  color: grey;
+}
+
+.fa-toggle#lightSwitch {
+  font-size: 22vw;
+}
+
+.lightBulbOff {
+  color: grey;
+}
+
+.lightBulbOn {
+  color: yellow;
+}
+
+.inner {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.inlineLeft,
+.inlineRight {
+  position: absolute;
+  display: inline;
+}
+
+.inlineRight {
+  right: 0;
+}
+
+button {
+  border: none;
+  padding: 20;
+  background: none;
+}
+
+.console {
+  width: 80%;
+  height: 240px;
+  border: 5px solid #cccccc;
+  padding: 5px;
+  font-family: "Lucida Console", Monaco, monospace;
+  background-color: lightgrey;
+  color: black;
+  
+}
+
+#fixed-top-right {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+}
+
+#fixed-top-left {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
