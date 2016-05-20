@@ -49,7 +49,7 @@ $(document).ready(function() {
 // These 128-Bit ID's correspond to the python-bluezero light switch example
 var SERVICE_UUID = '12341000-1234-1234-1234-123456789abc';
 var CHAR_RX_UUID = '12341002-1234-1234-1234-123456789abc';
-var CHAR_TX_UUID = '12341002-1234-1234-1234-123456789abc';
+var CHAR_TX_UUID = '12341001-1234-1234-1234-123456789abc';
 
 var LIGHT_OFF = [0x00];
 var LIGHT_ON = [0x01];
